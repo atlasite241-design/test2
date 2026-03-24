@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONT Finder Pro</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%232563eb'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='10' y='10' width='80' height='80' rx='20' fill='url(%23g)' stroke='%23ffffff' stroke-width='2' stroke-opacity='0.1'/%3E%3Cpath d='M25 50 L35 50 L45 25 L55 75 L65 50 L75 50' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --rgb-950: 2 6 23;
+        --rgb-900: 15 23 42;
+        --rgb-800: 30 41 59;
+        --rgb-700: 51 65 85;
+        --rgb-600: 71 85 105;
+        --rgb-500: 100 116 139;
+        --rgb-400: 148 163 184;
+        --rgb-300: 203 213 225;
+        --rgb-200: 226 232 240;
+        --rgb-100: 241 245 249;
+        --rgb-50:  248 250 252;
+        --rgb-white: 255 255 255;
+        --rgb-black: 0 0 0;
+        --bg-grad-1: rgba(99, 102, 241, 0.15);
+        --bg-grad-2: rgba(14, 165, 233, 0.15);
+        --bg-grad-3: rgba(16, 185, 129, 0.1);
+      }
+      .light-mode {
+        --rgb-950: 248 250 252;
+        --rgb-900: 255 255 255;
+        --rgb-800: 226 232 240;
+        --rgb-700: 203 213 225;
+        --rgb-600: 148 163 184;
+        --rgb-500: 100 116 139;
+        --rgb-400: 71 85 105;
+        --rgb-300: 51 65 85;
+        --rgb-200: 15 23 42;
+        --rgb-100: 2 6 23;
+        --rgb-50:  0 0 0;
+        --rgb-white: 15 23 42;
+        --rgb-black: 255 255 255;
+        --bg-grad-1: rgba(99, 102, 241, 0.05);
+        --bg-grad-2: rgba(14, 165, 233, 0.05);
+        --bg-grad-3: rgba(16, 185, 129, 0.05);
+      }
+      body {
+        background-color: rgb(var(--rgb-950));
+        color: rgb(var(--rgb-200));
+        background-image: 
+          radial-gradient(at 0% 0%, var(--bg-grad-1) 0px, transparent 50%),
+          radial-gradient(at 100% 0%, var(--bg-grad-2) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, var(--bg-grad-3) 0px, transparent 50%);
+        background-attachment: fixed;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background-color 0.4s ease, color 0.4s ease;
+      }
+      .glass-panel {
+        background: rgba(var(--rgb-900), 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(var(--rgb-white), 0.08);
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+      }
+      .glass-card {
+        background: linear-gradient(145deg, rgba(var(--rgb-800), 0.4) 0%, rgba(var(--rgb-900), 0.6) 100%);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(var(--rgb-white), 0.05);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+      }
+      .light-mode .glass-panel {
+         background: rgba(255, 255, 255, 0.7);
+         border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .light-mode .glass-card {
+         background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(241, 245, 249, 0.9) 100%);
+         border: 1px solid rgba(0,0,0,0.05);
+         box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--rgb-700));
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(var(--rgb-600));
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "xlsx": "https://esm.sh/xlsx@^0.18.5"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
